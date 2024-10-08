@@ -22,6 +22,8 @@
 document.addEventListener('keydown', (e) => {
     if (e.key === 'F12') {
         e.preventDefault();
+    } else if (e.ctrlKey && e.shiftKey && e.key === "I") { 
+        e.preventDefault();
     }
 });
 
