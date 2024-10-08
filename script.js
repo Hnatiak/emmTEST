@@ -59,7 +59,7 @@ async function fetchData() {
     h4.textContent = `Код країни: ${userInfo.countryCode}`
 
     const ip = document.createElement('h4')
-    h4.textContent = `ВАШЕ IP: ${userIP.ip}`
+    ip.textContent = `ВАШЕ IP: ${userIP.ip}`
 
     const city = document.createElement('h4')
     city.textContent = `Місто: ${userInfo.city}`
