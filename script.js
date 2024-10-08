@@ -33,7 +33,6 @@
 
 
 addEventListener('load', (event) => {
-    // Додаємо виклик функції fetchData() без зміни протоколу
     fetchData();
 });
 
@@ -49,10 +48,14 @@ async function fetchData() {
     // Якщо не вдалося отримати IP, виходимо з функції
     if (!userIP) return;
 
-    // Використовуємо той же протокол, що й у поточній сторінці
-    const protocol = location.protocol === 'https:' ? 'https:' : 'http:';
+    // Використовуємо HTTPS для запиту до ip-api.com
+    const userInfoUrl = `http://ip-api.com/json/${userIP.ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,isp,org,as,query`;
 
-    const userInfo = await fetch(`${protocol}//ip-api.com/json/${userIP.ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,isp,org,as,query`)
+    const userInfo = await fetch(userInfoUrl, {
+        headers: {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36'
+        }
+    })
         .then(response => response.json())
         .catch(error => {
             console.log('Could not find user info', error);
