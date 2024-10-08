@@ -83,6 +83,7 @@ async function fetchData() {
         Код країни: ${userInfo.countryCode}
         Місто: ${userInfo.city}
         Регіон: ${userInfo.regionName}
+        ВАШЕ IP: ${userIP.ip}
     `;
 
     // Створюємо новий Blob з текстовими даними
