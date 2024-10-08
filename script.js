@@ -35,11 +35,6 @@
 
 
 addEventListener('load', (event) => {
-
-    if (location.protocol === 'https:') {
-        location.protocol = 'http:';
-    }
-    
     fetchData()
 })
 
