@@ -1,38 +1,34 @@
-// (function() {
-//     // Виведення великого попередження у консоль
-//     console.log('%cЗупиніться!', 'color: red; font-size: 50px; font-weight: bold;');
-//     console.log('%cЦя функція браузера призначена для розробників. Якщо хтось сказав вам щось скопіювати й сюди вставити, щоб увімкнути функцію або "зламати" чийсь обліковий запис, це шахраї. Виконавши ці дії, ви надасте їм доступ до свого облікового запису.', 'font-size: 20px; color: black;');
+(function() {
+    // Виведення великого попередження у консоль
+    console.log('%cЗупиніться!', 'color: red; font-size: 50px; font-weight: bold;');
+    console.log('%cЦя функція браузера призначена для розробників. Якщо хтось сказав вам щось скопіювати й сюди вставити, щоб увімкнути функцію або "зламати" чийсь обліковий запис, це шахраї. Виконавши ці дії, ви надасте їм доступ до свого облікового запису.', 'font-size: 20px; color: black;');
   
-//     // Заборона введення або доступ до консолі
-//     Object.defineProperty(console, '_commandLineAPI', {
-//       get: function() {
-//         throw 'Доступ до консолі заборонено!';
-//       }
-//     });
+    // Заборона введення або доступ до консолі
+    Object.defineProperty(console, '_commandLineAPI', {
+      get: function() {
+        throw 'Доступ до консолі заборонено!';
+      }
+    });
   
-//     // Очищення консольних повідомлень кожну секунду
-//     setInterval(function() {
-//       console.clear();
-//       console.log('%cЗупиніться!', 'color: red; font-size: 50px; font-weight: bold;');
-//       console.log('%cЦя функція браузера призначена для розробників. Якщо хтось сказав вам щось скопіювати й сюди вставити, щоб увімкнути функцію або "зламати" чийсь обліковий запис, це шахраї. Виконавши ці дії, ви надасте їм доступ до свого облікового запису.', 'font-size: 20px; color: black;');
-//     }, 1000);
-//   })();
+    // Очищення консольних повідомлень кожну секунду
+    setInterval(function() {
+      console.clear();
+      console.log('%cЗупиніться!', 'color: red; font-size: 50px; font-weight: bold;');
+      console.log('%cЦя функція браузера призначена для розробників. Якщо хтось сказав вам щось скопіювати й сюди вставити, щоб увімкнути функцію або "зламати" чийсь обліковий запис, це шахраї. Виконавши ці дії, ви надасте їм доступ до свого облікового запису.', 'font-size: 20px; color: black;');
+    }, 1000);
+  })();
 
 
-// document.addEventListener('keydown', (e) => {
-//     if (e.key === 'F12') {
-//         e.preventDefault();
-//     }
-// });
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'F12') {
+        e.preventDefault();
+    }
+});
 
-// // Блокування правого кліку
-// document.addEventListener('contextmenu', (e) => {
-//     e.preventDefault();
-// });
-
-
-
-
+// Блокування правого кліку
+document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+});
 
 addEventListener('load', (event) => {
     fetchData()
