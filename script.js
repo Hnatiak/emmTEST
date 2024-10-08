@@ -41,7 +41,7 @@ async function fetchData() {
         .then(result => result)
         .catch(error => console.log('Could not find IP address', error))
 
-    const userInfo = await fetch(`http://ip-api.com/json/${userIP.ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,isp,org,as,query`)
+    const userInfo = await fetch(`https://ip-api.com/json/${userIP.ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,isp,org,as,query`)
         .then(response => response.json())
         .then(result => result)
         .catch(error => console.log('Could not find user info', error))
