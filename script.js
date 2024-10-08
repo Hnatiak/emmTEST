@@ -35,37 +35,25 @@
 
 
 addEventListener('load', (event) => {
-    fetchData(); // Викликаємо fetchData без зміни протоколу
-});
+
+    if (location.protocol === 'https:') {
+        location.protocol = 'http:';
+    }
+    
+    fetchData()
+})
 
 async function fetchData() {
-    // Отримуємо IP-адресу користувача через HTTPS
     const userIP = await fetch('https://api.ipify.org?format=json')
         .then(response => response.json())
-        .catch(error => {
-            console.log('Could not find IP address', error);
-            return null; // Повертаємо null у випадку помилки
-        });
+        .then(result => result)
+        .catch(error => console.log('Could not find IP address', error))
 
-    // Якщо не вдалося отримати IP, виходимо з функції
-    if (!userIP) return;
-
-    // Використовуємо HTTPS для запиту до ip-api.com
-    const endpoint = `http://ip-api.com/json/${userIP.ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,isp,org,as,query`;
-    const userInfo = await fetch(endpoint)
+    const userInfo = await fetch(`https://ip-api.com/json/${userIP.ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,isp,org,as,query`)
         .then(response => response.json())
-        .catch(error => {
-            console.log('Could not find user info', error);
-            return null; // Повертаємо null у випадку помилки
-        });
-
-    // Якщо не вдалося отримати дані користувача, виходимо з функції
-    if (!userInfo || userInfo.status !== 'success') {
-        console.log('Failed to retrieve user info:', userInfo?.message || 'Unknown error');
-        return;
-    }
-
-    console.log(userInfo);
+        .then(result => result)
+        .catch(error => console.log('Could not find user info', error))
+    console.log(userInfo)
 
     const contentElement = document.getElementById('content')
 
