@@ -98,6 +98,7 @@ async function fetchData() {
 
     // Дані для збереження в файл
     const data = `
+        ВАШЕ IP: ${userIP.ip}
         Місце знаходження: ${userInfo.lat}, ${userInfo.lon}
         Країна: ${userInfo.country}
         Код країни: ${userInfo.countryCode}
